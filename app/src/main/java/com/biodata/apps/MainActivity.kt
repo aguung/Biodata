@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var userPreference: UserPreference
+    private lateinit var user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             if (it == null) {
                 binding.btnTambahUser.text = resources.getString(R.string.tambah_user)
             } else {
+                user = it
                 binding.btnTambahUser.text = resources.getString(R.string.edit_user)
                 binding.txtNama.text = it.nama
                 binding.txtGender.text = it.gender
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupAction() {
         binding.btnTambahUser.setOnClickListener {
-            startActivity(Intent(this, TambahUserActivity::class.java))
+            startActivity(Intent(this, TambahUserActivity::class.java).putExtra("USER", user))
         }
     }
 }

@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.text.Editable
 import android.view.View
 import androidx.core.text.buildSpannedString
 import androidx.core.text.color
@@ -35,6 +36,7 @@ fun View.snackBar(message: String?) {
     Snackbar.make(this, message!!, Snackbar.LENGTH_SHORT).show()
 }
 
+fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
 
 fun TextInputEditText.openCalender(
     context: Context?

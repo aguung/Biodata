@@ -12,6 +12,7 @@ class TambahUserActivity : AppCompatActivity() {
         ActivityTambahUserBinding.inflate(layoutInflater)
     }
     private lateinit var userPreference: UserPreference
+    private var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +20,7 @@ class TambahUserActivity : AppCompatActivity() {
 
         userPreference = UserPreference(context = this)
 
+        user = intent?.getParcelableExtra("USER")
         setupUI()
         setupAction()
     }
@@ -28,6 +30,18 @@ class TambahUserActivity : AppCompatActivity() {
         binding.nama.markRequiredInRed()
         binding.tanggalLahir.markRequiredInRed()
         binding.tempatLahir.markRequiredInRed()
+        if(user != null){
+            binding.nameToolbar.text = resources.getString(R.string.edit_user)
+            binding.etNama.text = user?.nama?.toEditable()
+            if(user?.gender?.equals("Laki-Laki")!!){
+                binding.radioMale.isChecked = true
+            }else{
+                binding.radioFemale.isChecked = true
+            }
+            binding.etTempatLahir.text = user?.tempat?.toEditable()
+            binding.etTanggalLahir.text = user?.tanggal?.toEditable()
+            binding.etAlamat.text = user?.alamat?.toEditable()
+        }
     }
 
     private fun setupAction() {

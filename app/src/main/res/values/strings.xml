@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Biodata</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">todo</string>
+    <string name="tambah_user">Tambah User</string>
+    <string name="nama">Nama</string>
+    <string name="laki_laki">Laki-Laki</string>
+    <string name="perempuan">Perempuan</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="tempat_lahir">Tempat Lahir</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="alamat">Alamat</string>
+    <string name="edit_user">Edit User</string>
+    <string name="empty_fields">%1$s harus diisi</string>
+</resources>
